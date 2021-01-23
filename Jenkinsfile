@@ -75,7 +75,7 @@ pipeline {
             echo "5-MY_DOCKER_VERSION is ${MY_DOCKER_VERSION}"
             echo "5-MY_PATH is ${MY_PATH}"
             build job: "mytest2/main", propagate: true, wait: true
-            build job: 'job1', parameters: [[$class: 'StringParameterValue', name: 'HOSTNAME', value: "SECOND_SCRIPT_RESULT"],[$class: 'StringParameterValue', name: 'CHECK', value: "ERTAN"],]
+            build job: 'job1', parameters: [[$class: 'StringParameterValue', name: 'HOSTNAME', value: "${SECOND_SCRIPT_RESULT}"],[$class: 'StringParameterValue', name: 'CHECK', value: "ERTAN"],]
         }
     }
   }
