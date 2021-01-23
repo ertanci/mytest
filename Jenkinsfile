@@ -25,6 +25,7 @@ pipeline {
             echo "2-MY_DOCKER_VERSION is ${MY_DOCKER_VERSION}"
             echo "2-MY_PATH is ${MY_PATH}"
             script {
+                sh 'chmod +x bScript.sh'
                 MY_MACHINE_NAME = sh(script: './bScript.sh', returnStdout: true).trim()
                 IS_SUCCESS = sh(script: './bScript.sh', returnStatus: true) == 0
             }
@@ -42,6 +43,7 @@ pipeline {
             echo "3-MY_DOCKER_VERSION is ${MY_DOCKER_VERSION}"
             echo "3-MY_PATH is ${MY_PATH}"
             script {
+                sh 'chmod +x secondScript.sh'
                 SECOND_SCRIPT_RESULT = sh(script: "./secondScript.sh ${MY_MACHINE_NAME}", returnStdout: true).trim()
             }
             echo "3-SECOND_SCRIPT_RESULT is ${SECOND_SCRIPT_RESULT}"
