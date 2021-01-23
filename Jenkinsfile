@@ -57,6 +57,7 @@ pipeline {
             echo '4'
             echo "4-MY_DOCKER_VERSION is ${MY_DOCKER_VERSION}"
             echo "4-MY_PATH is ${MY_PATH}"
+            echo "test"
         }
     }
     stage('five') {
