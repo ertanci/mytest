@@ -74,6 +74,7 @@ pipeline {
             echo '5 ve tese'
             echo "5-MY_DOCKER_VERSION is ${MY_DOCKER_VERSION}"
             echo "5-MY_PATH is ${MY_PATH}"
+            build 'mytest'	
         }
     }
   }
