@@ -1,9 +1,3 @@
-MY_DOCKER_VERSION = 'MY_NULL'
-MY_PATH = 'MY_NULL'
-MY_MACHINE_NAME = 'MY_NULL'
-IS_SUCCESS = 'MY_NULL'
-SECOND_SCRIPT_RESULT = 'MY_NULL'
-
 pipeline {
   agent any
   stages {
@@ -78,5 +72,13 @@ pipeline {
             build job: 'job1', parameters: [[$class: 'StringParameterValue', name: 'HOSTNAME', value: "${SECOND_SCRIPT_RESULT}"],[$class: 'StringParameterValue', name: 'CHECK', value: "ERTAN"],]
         }
     }
+  }
+
+  environment {
+    MY_DOCKER_VERSION = 'MY_NULL'
+    MY_PATH = 'MY_NULL'
+    MY_MACHINE_NAME = 'MY_NULL'
+    IS_SUCCESS = 'MY_NULL'
+    SECOND_SCRIPT_RESULT = 'MY_NULL'
   }
 }
