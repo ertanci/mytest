@@ -14,7 +14,7 @@ pipeline {
                 echo "Running commands: ${arrs}"
                 int top = arrs.size()
                 echo "top is ${top}"
-                for (String arr in REMOTE_ARRAY) {
+                for (String arr in REMOTE_ARRAY.split( '\n' )) {
                     echo "${arr}"
                 }
 
