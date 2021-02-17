@@ -10,10 +10,14 @@ pipeline {
                 MY_DOCKER_VERSION = sh(script: 'docker --version', returnStdout: true).trim()
                 MY_PATH = sh(script: 'pwd', returnStdout: true).trim()
             
-                String[] arr = [ "one","two","three",'four','five' ]
-                echo "Running commands: ${arr}"
-                int top = arr.size()
+                String[] arrs = [ "one","two","three",'four','five' ]
+                echo "Running commands: ${arrs}"
+                int top = arrs.size()
                 echo "top is ${top}"
+                for (String arr in arrs) {
+                    echo "${arr}"
+                }
+
                 
             }
             echo "REMOTE_ARRAY is ${REMOTE_ARRAY}"
