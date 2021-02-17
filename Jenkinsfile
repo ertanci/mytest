@@ -23,6 +23,7 @@ pipeline {
 
         }
     }
+    }
     stage('two') {
         steps {
             echo '2'
