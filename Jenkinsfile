@@ -6,7 +6,7 @@ pipeline {
             echo '1'
             sh 'docker --version' 
             script {
-                REMOTE_ARRAY = sh(script: 'sshpass -p 'Ertan123' ssh ertan@10.0.2.4 uname', returnStdout: true).trim()
+                REMOTE_ARRAY = sh(script: 'ssh -T -i  /home/ertan/.ssh/id_rsa ertan@10.0.2.4 uname', returnStdout: true).trim()
                 MY_DOCKER_VERSION = sh(script: 'docker --version', returnStdout: true).trim()
                 MY_PATH = sh(script: 'pwd', returnStdout: true).trim()
             }
