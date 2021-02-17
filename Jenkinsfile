@@ -13,6 +13,15 @@ pipeline {
             echo "REMOTE_ARRAY is ${REMOTE_ARRAY}"
             echo "MY_DOCKER_VERSION is ${MY_DOCKER_VERSION}"
             echo "MY_PATH is ${MY_PATH}"
+
+            String[] arr = [ "one","two","three",'four','five' ]
+            echo "Running commands: ${arr}"
+            int top = arr.size()
+            echo "top is ${top}"
+            for (it in arr) {
+                echo "${it}"
+            }
+
     }
 }
     stage('two') {
