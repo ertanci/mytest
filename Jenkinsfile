@@ -6,9 +6,11 @@ pipeline {
             echo '1'
             sh 'docker --version' 
             script {
+                REMOTE_ARRAY = sh(script: 'ssh ertan@10.0.2.4 uname', returnStdout: true).trim()
                 MY_DOCKER_VERSION = sh(script: 'docker --version', returnStdout: true).trim()
                 MY_PATH = sh(script: 'pwd', returnStdout: true).trim()
             }
+            echo "REMOTE_ARRAY is ${REMOTE_ARRAY}"
             echo "MY_DOCKER_VERSION is ${MY_DOCKER_VERSION}"
             echo "MY_PATH is ${MY_PATH}"
         }
@@ -80,5 +82,6 @@ pipeline {
     MY_MACHINE_NAME = 'MY_NULL'
     IS_SUCCESS = 'MY_NULL'
     SECOND_SCRIPT_RESULT = 'MY_NULL'
+    REMOTE_ARRAY= 'MY_NULL'
   }
 }
