@@ -6,7 +6,7 @@ pipeline {
             echo '1'
             sh 'docker --version' 
             script {
-                REMOTE_ARRAY = sh(script: 'ssh -T -i  /var/lib/jenkins/myssh/id_rsa ertan@10.0.2.4 uname', returnStdout: true).trim()
+                REMOTE_ARRAY = sh(script: 'ssh -T -i  /var/lib/jenkins/myssh/id_rsa ertan@10.0.2.4 cat /etc/passwd', returnStdout: true).trim()
                 MY_DOCKER_VERSION = sh(script: 'docker --version', returnStdout: true).trim()
                 MY_PATH = sh(script: 'pwd', returnStdout: true).trim()
             
@@ -14,7 +14,7 @@ pipeline {
                 echo "Running commands: ${arrs}"
                 int top = arrs.size()
                 echo "top is ${top}"
-                for (String arr in arrs) {
+                for (String arr in REMOTE_ARRAY) {
                     echo "${arr}"
                 }
 
